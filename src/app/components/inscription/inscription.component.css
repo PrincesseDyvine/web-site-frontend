@@ -1,0 +1,10 @@
+.bg-red{
+  background-color: #FF0000;
+}
+.text-color-red{
+  color: #FF0000;
+}
+.centered-element{
+  margin-left: auto;
+  margin-right: auto;
+}

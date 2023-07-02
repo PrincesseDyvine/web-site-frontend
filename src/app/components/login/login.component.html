@@ -1,0 +1,50 @@
+<div class="mt-5 mb-5 textcolorwhite">
+  <p class="text-white">ESB</p>
+</div>
+<div class="container mt-3">
+  <div class="card col-md-6 offset-3 mt-2 policy shadow">
+    <div class="card-header text-center text-color-red">
+      <b>Authentification</b>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-danger" *ngIf="errorFlag==1">
+        <strong>nom d'utilisateur ou mot de passe erronés.</strong>
+      </div>
+      <form [formGroup]="loginFormGroup" (ngSubmit)="handleLogin()">
+
+        <div class="mb-3">
+          <label class="form-label"><b>Nom d'utilisateur</b></label>
+          <input type="text" formControlName="username" class="form-control">
+          <span class="text-danger" *ngIf="loginFormGroup.controls['username'].touched
+          && loginFormGroup.controls['username'].errors
+          && loginFormGroup.controls['username'].errors!['required']">
+            le nom d'utilisateur est obligatoire.
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><b>Mot de passe</b></label>
+          <input type="password" formControlName="password" class="form-control">
+          <span class="text-danger" *ngIf="loginFormGroup.controls['password'].touched
+          && loginFormGroup.controls['password'].errors
+          && loginFormGroup.controls['password'].errors!['required']">
+            Le mot de passe est obligatoire.
+          </span>
+        </div>
+        <button [disabled]="!loginFormGroup.valid" class="btn bg-red text-white">
+          Connexion
+        </button>
+      </form>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <a (click)="gotoForgetPasswordComponent()" class="text-start btn">J'ai oublié mon mot de passe</a>
+        </div>
+        <div class="col-md-6 text-center">
+          <a (click)="gotoForgetInscriptionComponent()" class="text-end btn">Je m'inscrit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

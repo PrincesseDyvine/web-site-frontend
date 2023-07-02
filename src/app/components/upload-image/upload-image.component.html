@@ -1,0 +1,21 @@
+<div class="mt-5 mb-5 textcolorwhite">
+  <p class="text-white">ESB</p>
+</div>
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label class="mb-2">Image :</label>
+        <input type="file" (change)="onImageUpload($event)" name="logo" class="form-control">
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-success" (click)="save()">Enregistrer</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <img [src]="imagePath" class="card-img-top img-fluid rounded-start" style="width: 512px; height: 512px"  alt="img"/>
+      </div>
+    </div>
+  </div>
+</div>

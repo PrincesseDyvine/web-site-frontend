@@ -1,0 +1,70 @@
+<div class="mt-5 mb-5 textcolorwhite">
+  <p class="text-white">ESB</p>
+</div>
+<div class="container mt-3">
+  <div class="card col-md-6 offset-3 mt-2 policy shadow">
+    <div class="card-header text-center text-color-red">
+      <b>Inscription</b>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-danger" *ngIf="errorFlag==1">
+        <strong>nom d'utilisateur ou email déjà utilisé</strong>
+      </div>
+      <form [formGroup]="inscriptionFormGroup" (ngSubmit)="handleInscription()">
+
+        <div class="mb-3">
+          <label class="form-label"><b>Prénom</b></label>
+          <input type="text" formControlName="firstname" class="form-control">
+          <span class="text-danger" *ngIf="inscriptionFormGroup.controls['firstname'].touched
+          && inscriptionFormGroup.controls['firstname'].errors
+          && inscriptionFormGroup.controls['firstname'].errors!['required']">
+            le prénom de l'utilisateur est obligatoire.
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><b>Nom</b></label>
+          <input type="text" formControlName="name" class="form-control">
+          <span class="text-danger" *ngIf="inscriptionFormGroup.controls['name'].touched
+          && inscriptionFormGroup.controls['name'].errors
+          && inscriptionFormGroup.controls['name'].errors!['required']">
+            le nom de l'utilisateur est obligatoire.
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><b>Email</b></label>
+          <input type="text" formControlName="email" class="form-control">
+          <span class="text-danger" *ngIf="inscriptionFormGroup.controls['email'].touched
+          && inscriptionFormGroup.controls['email'].errors
+          && inscriptionFormGroup.controls['email'].errors!['required']">
+            l'email de l'utilisateur est obligatoire.
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><b>Nom d'utilisateur</b></label>
+          <input type="text" formControlName="username" class="form-control">
+          <span class="text-danger" *ngIf="inscriptionFormGroup.controls['username'].touched
+          && inscriptionFormGroup.controls['username'].errors
+          && inscriptionFormGroup.controls['username'].errors!['required']">
+            le nom d'utilisateur est obligatoire.
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><b>Mot de passe</b></label>
+          <input type="password" formControlName="password" class="form-control">
+          <span class="text-danger" *ngIf="inscriptionFormGroup.controls['password'].touched
+          && inscriptionFormGroup.controls['password'].errors
+          && inscriptionFormGroup.controls['password'].errors!['required']">
+            Le mot de passe est obligatoire.
+          </span>
+        </div>
+        <button [disabled]="!inscriptionFormGroup.valid" class="btn bg-red text-white">
+          Connexion
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
